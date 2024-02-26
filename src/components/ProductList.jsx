@@ -1,22 +1,14 @@
 import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import "../App.css";
 import { ProductCard } from "./ProductCard";
+import { useProductList } from "../hooks/useProductList";
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const getProducts = async () => {
-    const getProducts = await fetch("https://fakestoreapi.com/products");
-    const data = await getProducts.json();
-    setProducts(data);
-    console.log(data);
-  };
-  useEffect(() => {
-    getProducts();
-  }, []);
+  const products = useProductList(); //Calling custom hook
   return (
     <div className="productList">
       {products.map((product) => (
         <ProductCard
+          key={product.id}
           image={product.image}
           title={product.title}
           price={product.price}

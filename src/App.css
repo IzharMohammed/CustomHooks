@@ -3,5 +3,8 @@
     flex-wrap: wrap;
 }
 .productCard{
-    
+    width: 292px;
+}
+.productCard img{
+    width: 100%;
 }
